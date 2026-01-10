@@ -89,4 +89,3 @@ Used to measure the average magnitude of prediction errors.
 
 Among the three models trained, the **Random Forest Regressor** achieved the lowest error and provided the most accurate traffic volume predictions. The trained model was saved successfully and can be used for **real-time traffic prediction applications**
 
-Just tell me 💙
