@@ -87,5 +87,5 @@ Used to measure the average magnitude of prediction errors.
 
 ## **Final Outcome:**
 
-Among the three models trained, the **Random Forest Regressor** achieved the lowest error and provided the most accurate traffic volume predictions. The trained model was saved successfully and can be used for **real-time traffic prediction applications**
+Among the three models trained, the **Random Forest Regressor** achieved the lowest error and provided the most accurate traffic volume predictions. The trained model was saved successfully and can be used for **real-time traffic prediction applications**.The Random Forest model **reduced Mean Absolute Error** by approximately **86%** compared to Linear Regression and by about 20% compared to Decision Tree.
 
