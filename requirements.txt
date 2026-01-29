@@ -1,0 +1,19 @@
+Tools Used and Tech Stack:
+
+1.Python
+Primary programming language used for data preprocessing, feature engineering, model training, and evaluation.
+2.Pandas
+Used for loading the dataset, handling missing values, manipulating tabular data, and performing feature transformations.
+3.NumPy
+Used for numerical computations, array operations, and efficient data handling during model training and prediction.
+4.Scikit-learn (sklearn)
+Machine learning library used for:
+*Data splitting (train-test split)
+*Model training (Linear Regression, Decision Tree, Random Forest)
+*Model evaluation using error metrics
+5.Seaborn
+Used for exploratory data analysis and visualization of traffic volume distribution.
+6.Matplotlib
+Used for creating and saving visualizations such as histograms for inclusion in reports and README files.
+7.Joblib
+Used to save and load trained machine learning models for future use and deployment.
