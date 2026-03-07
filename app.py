@@ -18,10 +18,7 @@ st.title("🚦 Traffic Volume Prediction System")
 
 st.markdown("""
 This web application predicts **traffic volume** using a machine learning model.
-
-**Model Used:** XGBoost  
-**Deployment:** Streamlit  
-**Purpose:** Estimate traffic congestion based on weather and time conditions.
+ Estimate traffic congestion based on weather and time conditions.
 """)
 
 st.divider()
