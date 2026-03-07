@@ -1,20 +1,23 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import matplotlib.pyplot as plt
 
+# Page configuration
 st.set_page_config(
     page_title="Traffic Volume Predictor",
     page_icon="🚦",
     layout="wide"
 )
 
+# Load trained model
 model = joblib.load("models/traffic_model.pkl")
 model_columns = joblib.load("models/model_columns.pkl")
 
 st.title("🚦 Traffic Volume Prediction System")
 
 st.markdown("""
-This application predicts **traffic volume** using a machine learning model.
+This web application predicts **traffic volume** using a machine learning model.
 
 **Model Used:** XGBoost  
 **Deployment:** Streamlit  
@@ -23,18 +26,20 @@ This application predicts **traffic volume** using a machine learning model.
 
 st.divider()
 
+
 st.sidebar.header("Enter Traffic Parameters")
 
-holiday = st.sidebar.selectbox("Holiday (0 = No, 1 = Yes)", [0,1])
+holiday = st.sidebar.selectbox("Holiday (0 = No, 1 = Yes)", [0, 1])
+
 temp = st.sidebar.number_input("Temperature (°C)")
 rain_1h = st.sidebar.number_input("Rain in last hour (mm)")
 snow_1h = st.sidebar.number_input("Snow in last hour (mm)")
-clouds_all = st.sidebar.slider("Cloud Cover (%)",0,100)
+clouds_all = st.sidebar.slider("Cloud Cover (%)", 0, 100)
 
-hour = st.sidebar.slider("Hour (0-23)",0,23)
-day = st.sidebar.slider("Day (1-31)",1,31)
-month = st.sidebar.slider("Month (1-12)",1,12)
-weekday = st.sidebar.slider("Weekday (0-6)",0,6)
+hour = st.sidebar.slider("Hour (0-23)", 0, 23)
+day = st.sidebar.slider("Day (1-31)", 1, 31)
+month = st.sidebar.slider("Month (1-12)", 1, 12)
+weekday = st.sidebar.slider("Weekday (0-6)", 0, 6)
 
 weather_main = st.sidebar.selectbox(
     "Weather Main",
@@ -55,7 +60,6 @@ weather_description = st.sidebar.selectbox(
     ]
 )
 
-
 input_data = pd.DataFrame({
     "holiday":[holiday],
     "temp":[temp],
@@ -70,21 +74,21 @@ input_data = pd.DataFrame({
     "weather_description":[weather_description]
 })
 
-
 input_encoded = pd.get_dummies(input_data)
-
 
 final_input = input_encoded.reindex(columns=model_columns, fill_value=0)
 
 st.subheader("Prediction")
 
-if st.button("Predict Traffic Volume 🚗"):
+
+if st.button("Predict Traffic Volume "):
 
     prediction = model.predict(final_input)
     traffic_volume = int(prediction[0])
 
-    st.success(f"🚗 Estimated Traffic Volume: **{traffic_volume} vehicles**")
+    st.success(f" Estimated Traffic Volume: **{traffic_volume} vehicles**")
 
+    # Traffic level indicator
     if traffic_volume < 2000:
         st.info("🟢 Traffic Level: LOW congestion")
     elif traffic_volume < 4000:
@@ -94,6 +98,19 @@ if st.button("Predict Traffic Volume 🚗"):
 
     st.subheader("Input Summary")
     st.dataframe(input_data)
+
+    st.subheader("Traffic Volume Visualization")
+
+    # Simple visualization
+    volumes = [traffic_volume * 0.7, traffic_volume * 0.9, traffic_volume]
+    labels = ["Previous Hour", "Current Hour", "Predicted"]
+
+    fig, ax = plt.subplots()
+    ax.plot(labels, volumes, marker="o")
+    ax.set_ylabel("Traffic Volume")
+    ax.set_title("Traffic Trend Estimation")
+
+    st.pyplot(fig)
 
 st.divider()
 
