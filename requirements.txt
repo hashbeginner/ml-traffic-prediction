@@ -21,3 +21,4 @@ Used to save and load trained machine learning models for future use and deploym
 Uses gradient boosting with decision trees to iteratively improve predictions by focusing on errors from the previous models.
 9.Streamlit
 Used to transform data scripts into dynamic web apps to support features like real-time updates, data visualization and integration with data tools.
+10.tensorflow-cpu==2.12.0
