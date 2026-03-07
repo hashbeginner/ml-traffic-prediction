@@ -17,7 +17,6 @@ model_columns = joblib.load("models/model_columns.pkl")
 st.title("🚦 Traffic Volume Prediction System")
 
 st.markdown("""
-This web application predicts **traffic volume** using a machine learning model.
  Estimate traffic congestion based on weather and time conditions.
 """)
 
