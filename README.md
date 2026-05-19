@@ -202,14 +202,6 @@ http://localhost:8501
 
 The dataset contains information about **traffic conditions and weather data**.
 
-Key attributes include:
-
-* Weather conditions
-* Temperature
-* Rain and snow levels
-* Time and date
-* Traffic volume
-
 ---
 
 #  Future Improvements
