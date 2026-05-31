@@ -159,6 +159,8 @@ Users can input:
 
 The model then predicts **expected traffic volume**.
 
+[Live Demo](https://ml-traffic-prediction-fcyogeips6vhrzh2vsnffs.streamlit.app/)
+
 ---
 
 # ▶️ How to Run the Project
